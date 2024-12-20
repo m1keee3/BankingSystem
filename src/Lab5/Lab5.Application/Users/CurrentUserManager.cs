@@ -7,5 +7,5 @@ public class CurrentUserManager : ICurrentUserService
 {
     public User? User { get; set; }
 
-    public UserRole Role { get; set; }
+    public UserRole Role { get; set; } = UserRole.Unknown;
 }

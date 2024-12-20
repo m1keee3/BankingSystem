@@ -52,6 +52,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5.Application", "src\Lab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5", "src\Lab5\Lab5\Lab5.csproj", "{57584020-FA97-427E-A5B9-136E0A0BCBC3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{2A75074A-4C19-4EC4-9FA1-92FF159E3BDD}"
+	ProjectSection(SolutionItems) = preProject
+		..\workshop-5\docker\.env = ..\workshop-5\docker\.env
+		..\workshop-5\docker\docker-compose.yaml = ..\workshop-5\docker\docker-compose.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +84,7 @@ Global
 		{8AA1B05B-E3A2-4F92-8033-E0DC1949E901} = {70ABA315-CD5B-47FE-8FC1-3B123078E265}
 		{3E3D5DFB-4B64-44BD-BF57-764912A51C56} = {70ABA315-CD5B-47FE-8FC1-3B123078E265}
 		{57584020-FA97-427E-A5B9-136E0A0BCBC3} = {13EB1C12-0A54-498C-A948-2E193758F665}
+		{2A75074A-4C19-4EC4-9FA1-92FF159E3BDD} = {3DB12F6C-143E-4086-BCB2-2EC3461BC353}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{25EFCB64-8B06-4F6A-BBFD-9F713438637F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

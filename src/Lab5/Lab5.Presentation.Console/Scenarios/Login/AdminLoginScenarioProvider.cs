@@ -19,7 +19,7 @@ public class AdminLoginScenarioProvider : IScenarioProvider
 
     public bool TryGetScenario([NotNullWhen(true)] out IScenario? scenario)
     {
-        if (_currentUser.User is not null || _currentUser.Role != UserRole.Admin)
+        if (_currentUser.User is not null || _currentUser.Role == UserRole.Admin)
         {
             scenario = null;
             return false;

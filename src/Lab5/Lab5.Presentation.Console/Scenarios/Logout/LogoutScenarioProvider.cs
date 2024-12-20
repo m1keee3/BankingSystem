@@ -1,4 +1,5 @@
 ﻿using Lab5.Application.Contracts.Users;
+using Lab5.Application.Models.Users;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Lab5.Presentation.Console.Scenarios.Logout;
@@ -18,7 +19,7 @@ public class LogoutScenarioProvider : IScenarioProvider
 
     public bool TryGetScenario([NotNullWhen(true)] out IScenario? scenario)
     {
-        if (_currentUser.User is null)
+        if (_currentUser.User is null || _currentUser.Role == UserRole.Admin)
         {
             scenario = null;
             return false;

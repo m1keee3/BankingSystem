@@ -36,7 +36,7 @@ public class RemoveMoneyScenario : IScenario
         }
         else
         {
-            _userRepository.AddMoney(_userService.User.Id, amount);
+            _userRepository.RemoveMoney(_userService.User.Id, amount);
         }
 
         AnsiConsole.Ask<string>("Ok");

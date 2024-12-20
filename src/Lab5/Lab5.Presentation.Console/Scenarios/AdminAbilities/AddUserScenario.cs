@@ -17,7 +17,7 @@ public class AddUserScenario : IScenario
     public void Run()
     {
         long id = AnsiConsole.Ask<long>("Enter user id");
-        long password = AnsiConsole.Ask<long>("Enter user id");
+        long password = AnsiConsole.Ask<long>("Enter user password");
 
         if (_userRepository.FindUserById(id) is not null)
         {

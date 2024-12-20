@@ -13,5 +13,5 @@ public class User
 
     public long Password { get; }
 
-    public decimal Balance { get; }
+    public decimal Balance { get; set; }
 }
