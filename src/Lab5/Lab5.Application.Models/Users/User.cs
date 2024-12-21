@@ -2,12 +2,15 @@
 
 public class User
 {
-    public User(long id, long password, decimal balance)
+    public User(UserRole role, long id, long password, decimal balance)
     {
+        Role = role;
         Id = id;
         Password = password;
         Balance = balance;
     }
+
+    public UserRole Role { get; }
 
     public long Id { get; }
 

@@ -6,6 +6,4 @@ namespace Lab5.Application.Users;
 public class CurrentUserManager : ICurrentUserService
 {
     public User? User { get; set; }
-
-    public UserRole Role { get; set; } = UserRole.Unknown;
 }

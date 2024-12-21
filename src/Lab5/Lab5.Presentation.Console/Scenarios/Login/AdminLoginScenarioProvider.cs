@@ -1,5 +1,4 @@
 ﻿using Lab5.Application.Contracts.Users;
-using Lab5.Application.Models.Users;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Lab5.Presentation.Console.Scenarios.Login;
@@ -19,7 +18,7 @@ public class AdminLoginScenarioProvider : IScenarioProvider
 
     public bool TryGetScenario([NotNullWhen(true)] out IScenario? scenario)
     {
-        if (_currentUser.User is not null || _currentUser.Role == UserRole.Admin)
+        if (_currentUser.User is not null)
         {
             scenario = null;
             return false;

@@ -22,19 +22,16 @@ public class UserService : IUserService
         if (user is null)
         {
             _currentUserManager.User = null;
-            _currentUserManager.Role = UserRole.Unknown;
             return new LoginResult.NotFound();
         }
 
         if (user.Password != password)
         {
             _currentUserManager.User = null;
-            _currentUserManager.Role = UserRole.Unknown;
             return new LoginResult.WrongPassword();
         }
 
         _currentUserManager.User = user;
-        _currentUserManager.Role = UserRole.User;
         return new LoginResult.Success();
     }
 
@@ -44,21 +41,18 @@ public class UserService : IUserService
         {
             if (password == "123123")
             {
-                _currentUserManager.Role = UserRole.Admin;
+                _currentUserManager.User = new User(UserRole.Admin, 0, 123123, 1000);
                 return new LoginResult.Success();
             }
 
-            _currentUserManager.Role = UserRole.Unknown;
             return new LoginResult.WrongPassword();
         }
 
-        _currentUserManager.Role = UserRole.Unknown;
         return new LoginResult.NotFound();
     }
 
     public void Logout()
     {
         _currentUserManager.User = null;
-        _currentUserManager.Role = UserRole.Unknown;
     }
 }

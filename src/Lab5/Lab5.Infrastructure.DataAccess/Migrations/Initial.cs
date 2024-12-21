@@ -1,47 +1,43 @@
 ﻿using FluentMigrator;
-using Itmo.Dev.Platform.Postgres.Migrations;
 
 namespace Lab5.Infrastructure.DataAccess.Migrations;
 
-[Migration(1, "Initial")]
-public class Initial : SqlMigration
+[Migration(1)]
+public class Initial : Migration
 {
-    protected override string GetUpSql(IServiceProvider serviceProvider) =>
-    """
-    create type OperationTypes as enum
-    (
-        'PUT',
-        'REMOVE'
-    );
-    
-    create table Accounts
-    (
-        Account_id bigint primary key generated always as identity ,
-        AccountPassword bigint ,
-        Balance decimal,
-    );
+    public override void Up()
+    {
+        Create.Table("accounts")
+            .WithColumn("Account_id")
+            .AsInt64()
+            .Identity()
+            .PrimaryKey()
+            .WithColumn("AccountPassword")
+            .AsInt64()
+            .NotNullable()
+            .WithColumn("Balance")
+            .AsDecimal(18, 2)
+            .NotNullable();
 
-    create table OperationHistory 
-    (
-        OperationId bigint primary key generated always as identity,
-        AccountId bigint references Accounts(AccountId),
-        OperationType OperationTypes,
-        Amount DECIMAL 
-    );
-    
-    insert into Accounts(AccountId, AccountPassword, AccountBalance)
-    values (1, 123, 0), 
-           (2, 123, 1000),
-           (3, 123, 20500)
-    """;
+        Create.Table("OperationHistory")
+            .WithColumn("OperationId")
+            .AsGuid()
+            .PrimaryKey()
+            .WithColumn("AccountId")
+            .AsInt64()
+            .Identity()
+            .NotNullable()
+            .WithColumn("OperationType")
+            .AsString(20)
+            .NotNullable()
+            .WithColumn("Amount")
+            .AsDecimal(18, 2)
+            .NotNullable();
+    }
 
-    protected override string GetDownSql(IServiceProvider serviceProvider) =>
-    """
-    drop table Accounts;
-    drop table OperationHistory;
-
-    drop type user_role;
-    drop type order_state;
-    drop type order_result_state;
-    """;
+    public override void Down()
+    {
+        Delete.Table("OperationHistory");
+        Delete.Table("accounts");
+    }
 }

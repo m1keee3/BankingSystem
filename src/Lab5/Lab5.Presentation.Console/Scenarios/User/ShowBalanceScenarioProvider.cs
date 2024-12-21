@@ -16,7 +16,7 @@ public class ShowBalanceScenarioProvider : IScenarioProvider
 
     public bool TryGetScenario([NotNullWhen(true)] out IScenario? scenario)
     {
-        if (_currentUser.User is null || _currentUser.Role != UserRole.User)
+        if (_currentUser.User is null || _currentUser.User.Role != UserRole.User)
         {
             scenario = null;
             return false;

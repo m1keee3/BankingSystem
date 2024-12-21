@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Lab2\Lab2.csproj" />
       <ProjectReference Include="..\Lab5.Application.Models\Lab5.Application.Models.csproj" />
     </ItemGroup>
 

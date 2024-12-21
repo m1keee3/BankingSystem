@@ -22,7 +22,7 @@ public class MockUserRepository : IUserRepository
 
     public void InsertUser(long id, long password)
     {
-        _users.Add(new User(id, password, 0));
+        _users.Add(new User(UserRole.User, id, password, 0));
     }
 
     public void AddMoney(long id, decimal amount)

@@ -39,6 +39,7 @@ public class UserRepository : IUserRepository
         }
 
         return new User(
+            UserRole.User,
             id: reader.GetInt64(0),
             password: reader.GetInt64(1),
             balance: reader.GetInt64(2));

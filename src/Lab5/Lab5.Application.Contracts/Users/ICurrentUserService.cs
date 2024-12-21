@@ -5,6 +5,4 @@ namespace Lab5.Application.Contracts.Users;
 public interface ICurrentUserService
 {
     User? User { get; set; }
-
-    public UserRole Role { get; set; }
 }
