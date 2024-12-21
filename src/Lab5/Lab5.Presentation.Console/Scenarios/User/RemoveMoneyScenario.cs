@@ -26,9 +26,9 @@ public class RemoveMoneyScenario : IScenario
             throw new ArgumentNullException();
         }
 
-        if (amount > 0)
+        if (amount < 0)
         {
-            AnsiConsole.WriteLine("Amount can not be above zero");
+            AnsiConsole.WriteLine("Amount can not be below zero");
         }
         else if (_userService.User.Balance < amount)
         {

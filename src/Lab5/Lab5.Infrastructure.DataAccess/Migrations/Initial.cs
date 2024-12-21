@@ -8,36 +8,36 @@ public class Initial : Migration
     public override void Up()
     {
         Create.Table("accounts")
-            .WithColumn("Account_id")
+            .WithColumn("accountid")
             .AsInt64()
             .Identity()
             .PrimaryKey()
-            .WithColumn("AccountPassword")
+            .WithColumn("accountpassword")
             .AsInt64()
             .NotNullable()
-            .WithColumn("Balance")
+            .WithColumn("balance")
             .AsDecimal(18, 2)
             .NotNullable();
 
-        Create.Table("OperationHistory")
-            .WithColumn("OperationId")
+        Create.Table("operationhistory")
+            .WithColumn("operationid")
             .AsGuid()
             .PrimaryKey()
-            .WithColumn("AccountId")
+            .WithColumn("accountid")
             .AsInt64()
             .Identity()
             .NotNullable()
-            .WithColumn("OperationType")
+            .WithColumn("operationtype")
             .AsString(20)
             .NotNullable()
-            .WithColumn("Amount")
+            .WithColumn("amount")
             .AsDecimal(18, 2)
             .NotNullable();
     }
 
     public override void Down()
     {
-        Delete.Table("OperationHistory");
+        Delete.Table("operationhistory");
         Delete.Table("accounts");
     }
 }

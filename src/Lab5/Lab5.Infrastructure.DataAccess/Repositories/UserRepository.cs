@@ -18,8 +18,8 @@ public class UserRepository : IUserRepository
     {
         const string sql = """
                            select *
-                           from Accounts
-                           where AccountId = @id;
+                           from accounts
+                           where accountid = @id;
                            """;
 
         NpgsqlConnection connection = _connectionProvider
@@ -48,7 +48,7 @@ public class UserRepository : IUserRepository
     public void InsertUser(long id, long password)
     {
         const string sql = """
-                           insert into Accounts
+                           insert into accounts
                            values (@id, @password, 0)
                            """;
 
@@ -75,9 +75,9 @@ public class UserRepository : IUserRepository
         }
 
         const string sql = """
-                           update Accounts
-                           set AccountBalance = AccountBalance + @amount
-                           where AccountId = @id
+                           update accounts
+                           set accountbalance = accountbalance + @amount
+                           where accountid = @id
                            """;
 
         NpgsqlConnection connection = _connectionProvider
@@ -103,9 +103,9 @@ public class UserRepository : IUserRepository
         }
 
         const string sql = """
-                           UPDATE Accounts
-                           SET AccountBalance = AccountBalance - @amount
-                           WHERE AccountId = @id
+                           UPDATE accounts
+                           SET accountbalance = accountbalance - @amount
+                           WHERE accountid = @id
                            """;
 
         NpgsqlConnection connection = _connectionProvider
